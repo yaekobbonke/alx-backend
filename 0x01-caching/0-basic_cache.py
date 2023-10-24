@@ -1,23 +1,18 @@
 #!/usr/bin/python3
-
-"""Basic dictionary"""
+"""  Basic dictionary """
 from base_caching import BaseCaching
 
+
 class BasicCache(BaseCaching):
-    """basic cache"""
-    def __init__(self):
-        super().__init__()
-
+    """ Class that inherits from BaseCaching and is a caching system
+        This caching system doesn’t have limit """
     def put(self, key, item):
-        """updates dictionary"""
-        self.cache_data[key] = item
-
-        if key is None or item is None:
-            return
+        """ Assign to the dictionary """
+        if key and item:
+            self.cache_data[key] = item
 
     def get(self, key):
-        """retrieve the elements of dictionary"""
-
-        if key is None or key not in self.cache_data:
+        """ Return the value linked """
+        if key is None or self.cache_data.get(key) is None:
             return None
-        return self.cache_data[key])
+        return self.cache_data.get(key)
