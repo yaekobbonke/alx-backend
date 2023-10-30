@@ -1,9 +1,13 @@
 <!DOCTYPE html>
-<html lan = 'en'>
-	<head>
-		 <title>Welcome to Holberton</title>
-	</head>
+<html>
+<head><title>{{ gettext('home_title') }}</title></head>
 <body>
-	<h1>Hello world</h1>
+    <h1>{{ gettext('home_header') }}</h1>
+    {% if g.user %}
+    <p>{{ gettext('logged_in_as', username=g.user['name']) }}</p>
+    {% else %}
+    <p>{{ gettext('not_logged_in') }}</p>
+    {% endif %}
+     <p> The current time is {{ current_time.strftime('%B %d, %Y %H:%M:%S %p') }}</p>
 </body>
 </html>
